@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>dragSearch-2.0</title>
+	<link rel="stylesheet" href="css/dragSearch-2.0.min.css">
+	<style type="text/css">
+	    body,input,button{ margin:0; padding:0;}
+	    input,button,select{ outline: none; border:none;}
+
+	    body *{ box-sizing:border-box;}
+
+
+        .box{ padding:100px 0 200px 300px;}
+        .box input, .box select{ height:30px;}
+        .box input{ width:300px; padding-left: 10px; margin-right:100px;}
+        .box input:focus{ border:solid 1px red;}
+        .box select{ width:200px; margin-left:50px;}
+	</style>
+</head>
+<body>
+	<div id="box" class="box">
+		<span>请输入：</span><input type="text" name="keyword" id="input1">
+		<span>请选择：</span><select name="city" id="select1">
+			<option>请选择</option>
+			<option>北京</option>
+			<option>深圳</option>
+			<option>武汉</option>
+			<option>上海</option>
+			<option>广州</option>
+		</select>
+		<select id="select2" name="goods"></select>
+	</div>
+	<script src="js/dragSearch-2.0.min.js"></script>
+	<script>
+        (function(){
+
+            new dragSearch({
+                id:'input1',
+				data:[
+		           {
+		           	  value:100,
+		           	  text:'项目1',
+		           	  selected:true
+		           },
+		           {
+		           	  value:101,
+		           	  text:'项目2',
+		           	  selected:true
+		           },
+		           {
+		           	  value:102,
+		           	  text:'项目3'
+		           },
+		           {
+		           	  value:103,
+		           	  text:'项目4'
+		           },
+		           {
+		           	  value:104,
+		           	  text:'项目3'
+		           },
+		           {
+		           	  value:105,
+		           	  text:'项目4'
+		           },
+		           {
+		           	  value:106,
+		           	  text:'项目2'
+		           },
+		           {
+		           	  value:107,
+		           	  text:'项目4'
+		           }
+				],
+				config:{
+					tip:'请选择商家',
+					placeholder:'请输入商家名称',
+					maxHeight:200
+				},
+				success:function(res,e){
+					console.log(res.value+':'+res.text);
+				}
+            });
+
+            new dragSearch({
+                id:'select1',
+                data:[
+                   {
+		           	  value:105,
+		           	  text:'吃的4'
+		           },
+		           {
+		           	  value:106,
+		           	  text:'吃的3',
+		           	  selected:true
+		           },
+		           {
+		           	  value:107,
+		           	  text:'吃的4'
+		           }
+                ],
+                success:function(res,e){
+                	console.log(res.value+':'+res.text);
+                }
+            });
+
+
+            new dragSearch({
+                id:'select2',
+                data:[],
+                success:function(res,e){
+                	console.log(res.value+':'+res.text);
+                }
+            });
+
+        })();
+	</script>
+</body>
+</html>
