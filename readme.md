@@ -7,7 +7,7 @@ dragSearch pc端原生js下拉带搜索插件
 
 使用方法:
 示例：
-new DragSearch({
+new dragSearch({
 	id:'select1',
 	config:{
 	   tip:'请选择',
